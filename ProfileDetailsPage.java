@@ -190,10 +190,24 @@ public class ProfileDetailsPage extends BaseClass {
 
 
         public void fileUploadTest() {
+  Robot robot= new Robot();
+            PreDefinedActions.clickMethod(File, true);
+            robot.setAutoDelay(2000);
+            StringSelection selection= new StringSelection("C:\\Users\\Himanshu\\Desktop\\Selenium.txt");
+            Toolkit.getDefaultToolkit().getSystemClipboard().setContents(selection, null);
 
+            robot.setAutoDelay(1000);
 
-        PreDefinedActions.clickMethod(File, true);
-         PreDefinedActions.sendKeysMethod(File, "C:\\Users\\Himanshu\\Desktop\\Selenium.txt");
+            robot.keyPress(KeyEvent.VK_CONTROL);
+            robot.keyPress(KeyEvent.VK_V);
+
+            robot.keyRelease(KeyEvent.VK_CONTROL);
+            robot.keyRelease(KeyEvent.VK_V);
+
+            robot.setAutoDelay(1000);
+
+            robot.keyPress(KeyEvent.VK_ENTER);
+            robot.keyRelease(KeyEvent.VK_ENTER);
     }
 
 	@FindBy(css="button[type='submit']")
